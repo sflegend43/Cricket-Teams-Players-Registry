@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="view-transition" content="same-origin">
-    <title>CricketStats Pro | Dashboard</title>
+    <title>Cricket Registry | Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cricket_anim.css">
     <script>if (!localStorage.getItem('cricketUser')) window.location.href = 'login.html';</script>
-    <script src="transitions.js"></script>
 </head>
 <body>
     <div class="stadium-bg-overlay"></div>
@@ -22,19 +20,13 @@
                 <div class="nav-left">
                     <span class="logo-icon">🏏</span>
                     <div>
-                        <span class="logo-name">CRICKET<span class="logo-pro">STATS</span><span class="logo-sub"> PRO</span></span>
-                    </div>
-                </div>
-                <div class="nav-center">
-                    <div class="ai-pill">
-                        <span class="ai-badge">AI INSIGHT</span>
-                        <span class="ai-text" id="ai-insight-text">Loading tournament intel…</span>
+                        <span class="logo-name">CRICKET<span class="logo-pro">REGISTRY</span></span>
                     </div>
                 </div>
                 <div class="nav-right">
                     <div class="nav-user">
-                        <div class="user-avatar" id="user-avatar">A</div>
-                        <span class="nav-welcome">Welcome, <b id="user-name-display">User</b></span>
+                        <div class="user-avatar" id="user-avatar">U</div>
+                        <span class="nav-welcome">Welcome, <b id="user-name-display">User</b> (<span id="user-role-display">Fan</span>)</span>
                     </div>
                     <a href="#" onclick="logout()" class="logout-btn">Sign Out ↗</a>
                 </div>
@@ -42,74 +34,27 @@
             <div class="nav-bottom">
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link active">📊 Dashboard</a></li>
-                    <li><a href="tournaments.html" class="nav-link">🏆 Tournament</a></li>
-                    <li><a href="matches.html" class="nav-link">📋 Matches</a></li>
                     <li><a href="players.html" class="nav-link">🏏 Players</a></li>
                     <li><a href="teams.html" class="nav-link">🛡️ Teams</a></li>
-                    <li><a href="rankings.html" class="nav-link">📈 Rankings</a></li>
-                    <li><a href="records.html" class="nav-link">🏅 Records</a></li>
-                    <li><a href="stats.html" class="nav-link">🤖 AI Stats</a></li>
                 </ul>
             </div>
         </nav>
 
         <header class="page-hero">
             <div>
-                <h1 class="page-hero-title">Tournament Command Centre</h1>
-                <p class="page-hero-sub">Running and finished competitions — schedule progress, formats, and match volume.</p>
-            </div>
-            <div class="page-hero-actions">
-                <a href="tournaments.html" class="btn-view">Open Tournaments →</a>
+                <h1 class="page-hero-title">Cricket Team & Player Registry</h1>
+                <p class="page-hero-sub">Centralized database for managing teams, players, and statistics.</p>
             </div>
         </header>
 
         <div class="stats-grid" id="overview-stats">
-            <div class="stat-box"><div class="stat-label">Running</div><div class="stat-value" id="stat-running">—</div></div>
-            <div class="stat-box"><div class="stat-label">Finished</div><div class="stat-value" id="stat-finished">—</div></div>
-            <div class="stat-box"><div class="stat-label">Upcoming</div><div class="stat-value" id="stat-upcoming">—</div></div>
-            <div class="stat-box"><div class="stat-label">Total Matches</div><div class="stat-value" id="stat-matches">—</div></div>
-            <div class="stat-box"><div class="stat-label">Teams</div><div class="stat-value" id="stat-teams">—</div></div>
-            <div class="stat-box"><div class="stat-label">Live / Open</div><div class="stat-value" id="stat-live">—</div></div>
+            <div class="stat-box"><div class="stat-label">Total Teams</div><div class="stat-value" id="stat-teams">—</div></div>
+            <div class="stat-box"><div class="stat-label">Total Players</div><div class="stat-value" id="stat-players">—</div></div>
+            <div class="stat-box"><div class="stat-label">Registered Fans</div><div class="stat-value" id="stat-fans">—</div></div>
         </div>
 
-        <div class="dash-tour-grid">
-            <section class="glass-card">
-                <div class="section-head">
-                    <h3>🟢 Running Tournaments</h3>
-                    <span class="muted-chip" id="running-count">0</span>
-                </div>
-                <div id="running-tournaments" class="tour-card-list"></div>
-            </section>
-
-            <section class="glass-card">
-                <div class="section-head">
-                    <h3>🏁 Finished Tournaments</h3>
-                    <span class="muted-chip" id="finished-count">0</span>
-                </div>
-                <div id="finished-tournaments" class="tour-card-list"></div>
-            </section>
-        </div>
-
-        <section class="glass-card" style="margin-top:1.25rem;">
-            <div class="section-head">
-                <h3>📅 Recent Match Activity</h3>
-            </div>
-            <div class="table-scroll">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th><th>Tournament</th><th>Format</th>
-                            <th>Fixture</th><th>Score</th><th>Status</th><th>Date</th><th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="matches-table"></tbody>
-                </table>
-            </div>
-        </section>
     </div>
 
     <script src="logic.js"></script>
-    <button id="scroll-top-btn" class="scroll-top-btn" title="Back to top">↑</button>
-    <script src="enhance.js"></script>
 </body>
 </html>
